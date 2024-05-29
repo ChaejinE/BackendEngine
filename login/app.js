@@ -22,7 +22,7 @@ app.use(session({
 }))
 app.use((req, res, next) => {
     if (req.session.id) {
-        express.static(path.join(__dirname, "public-lotto"))(req, res, netx);
+        express.static(path.join(__dirname, "public-lotto"))(req, res, next);
     } else {
         next();
     }
