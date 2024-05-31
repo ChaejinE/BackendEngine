@@ -19,3 +19,11 @@
     })
   ```
 - express-session : It is useful for parsing data of HTTP Method
+
+- multer : 
+
+- passport
+  - When use, it must be next the session middleware
+- passport-local
+- passport-kakao
+- bcrypt
