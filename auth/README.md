@@ -20,7 +20,7 @@
   ```
 - express-session : It is useful for parsing data of HTTP Method
 
-- multer : 
+- multer : The useful tool which processes form-data from client
 
 - passport
   - When use, it must be next the session middleware

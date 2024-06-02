@@ -36,4 +36,4 @@ services:
 
 networks:
   our_net:
-    driver: host
+    driver: bridge
