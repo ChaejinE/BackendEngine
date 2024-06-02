@@ -4,6 +4,11 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
 const app = express();
+const { sequelize } = require("./models");
+
+sequelize.sync( { force: false })
+    .then(() => { console.log("Success to connect DB"); })
+    .catch((error) => { console.error(error); })
 
 const port_str = "port";
 app.set(port_str, process.env.PORT || 20080);

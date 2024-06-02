@@ -20,6 +20,9 @@
   ```
 - express-session : It is useful for parsing data of HTTP Method
 
+- sequelize mysql2
+- sequelize-cli
+
 - multer : The useful tool which processes form-data from client
 
 - passport
