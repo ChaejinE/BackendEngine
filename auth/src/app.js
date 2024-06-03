@@ -2,10 +2,13 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const passport = require("passport");
+const passportConfig = require("./passport");
 const path = require("path");
 const { sequelize } = require("./models");
 const app = express();
 
+passportConfig();
 sequelize.sync( { force: false })
     .then(() => { console.log("Success to connect DB"); })
     .catch((error) => { console.error(error); })
@@ -28,6 +31,8 @@ app.use(session({
         secure: false,
     }
 }))
+app.use(passport.initialize());
+
 app.use((req, res, next) => {
     if (req.session.id) {
         express.static(path.join(__dirname, "public-lotto"))(req, res, next);
