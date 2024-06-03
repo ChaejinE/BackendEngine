@@ -41,3 +41,9 @@ exports.login = async (req, res, next) => {
         })
     })(req, res, next);
 }
+
+exports.logout = async (req, res, next) => {
+    req.logout(() => {
+        res.redirect("/");
+    })
+}
