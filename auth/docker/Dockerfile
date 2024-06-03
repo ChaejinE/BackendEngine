@@ -5,3 +5,6 @@ WORKDIR ${WOKR_DIR}
 COPY src .
 RUN npm install
 RUN npm install nodemon -D
+
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD [ "npm", "start" ]
