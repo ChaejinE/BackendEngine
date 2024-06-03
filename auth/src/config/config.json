@@ -9,7 +9,7 @@
   "container": {
     "username": "root",
     "password": "test1234",
-    "database": "user_service_dev",
+    "database": "auth_container",
     "host": "db",
     "dialect": "mysql"
   },

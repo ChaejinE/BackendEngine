@@ -1,7 +1,7 @@
 FROM node:22.2-alpine
 
-ARG SOURE_DIR=/usr/src/app
-WORKDIR ${SOURE_DIR}
-COPY . .
+ARG WOKR_DIR
+WORKDIR ${WOKR_DIR}
+COPY src .
 RUN npm install
 RUN npm install nodemon -D
