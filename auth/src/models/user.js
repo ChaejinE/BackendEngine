@@ -13,7 +13,7 @@ class User extends Model {
                 allowNull: false
             },
             password: {
-                type: STRING(35),
+                type: STRING(100),
                 allowNull: false
             },
             provider: {

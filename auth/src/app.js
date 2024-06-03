@@ -3,12 +3,15 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
-const app = express();
 const { sequelize } = require("./models");
+const app = express();
 
 sequelize.sync( { force: false })
     .then(() => { console.log("Success to connect DB"); })
     .catch((error) => { console.error(error); })
+
+const pageRouter = require("./routes/page");
+const authRouter = require("./routes/auth");
 
 const port_str = "port";
 app.set(port_str, process.env.PORT || 20080);
@@ -33,11 +36,14 @@ app.use((req, res, next) => {
     }
 })
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/index.html"));
-})
-app.get("/login", (req, res) => {
-    res.send("<h1> Login page </h1>")
+app.use("/", pageRouter);
+app.use("/auth", authRouter);
+app.use((req, res, next) => {
+    if (process.env.NODE_ENV == "conatiner" || process.env.NODE_ENV == "dev") {
+        const error = new Error(`${req.method} ${req.url} there is no router`);
+        error.status = 404;
+        next(error)
+    }
 })
 
 app.listen(app.get(port_str), () => {

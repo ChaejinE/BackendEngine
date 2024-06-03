@@ -16,10 +16,10 @@ services:
     command:
       - |
         npx sequelize db:create
-        npm start
+        npm i && npm start
 
     volumes:
-      - .:/usr/app/src
+      - ../src:/usr/app/src
     ports:
       - 30080:80
 

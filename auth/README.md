@@ -30,3 +30,8 @@
 - passport-local
 - passport-kakao
 - bcrypt
+
+# Auth Flow
+- Router /auth/login
+- Call passport authenticate method
+- Try Starategy

@@ -12,8 +12,7 @@ const sequelize =new Sequelize(config.databse, config.username, config.password,
 
 db.sequelize = sequelize;
 
-fs
-  .readdirSync(__dirname)
+fs.readdirSync(__dirname)
   .filter(file => {
     return (
       file.indexOf('.') !== 0 &&
