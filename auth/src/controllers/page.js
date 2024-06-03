@@ -13,3 +13,11 @@ exports.renderJoin = async (req, res, next) => {
 exports.renderLoginSuccess = async (req, res, next) => {
     res.sendFile(path.join(__dirname, "..", `${public_dir_name}/login-success.html`));
 }
+
+exports.renderLoginRequired = async (req, res, next) => {
+    res.sendFile(path.join(__dirname, "..", `${public_dir_name}/login-required.html`));
+}
+
+exports.renderLoginNoRequired = async (req, res, next) => {
+    res.sendFile(path.join(__dirname, "..", `${public_dir_name}/login-no-required.html`));
+}

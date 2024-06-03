@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { renderMain, renderJoin, renderLoginSuccess } = require("../controllers/page");
+const page = require("../controllers/page");
 
-router.get("/", renderMain);
-router.get("/join", renderJoin);
-router.get("/login-success", renderLoginSuccess);
+router.get("/", page.renderMain);
+router.get("/join", page.renderJoin);
+router.get("/login-success", page.renderLoginSuccess);
+router.get("/login-required", page.renderLoginRequired);
+router.get("/login-no-required", page.renderLoginNoRequired);
 
 module.exports = router;

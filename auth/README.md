@@ -35,5 +35,5 @@
 - Router /auth/login
 - Call passport authenticate method
 - Try Starategy
-  - authenticate -> passport.use's verify -> auth callback -> Call req.login() -> Call passport.serializeUser() for saving id key in the req.session (to Browser)
-  - passport's session middleware -> Call passport.deserializeUser() using id in the req.session for searching User and saving user's info in the req.user so that routers can use common req.user data
+  - authenticate -> passport.use's verify -> auth callback -> Call req.login() -> Call passport.serializeUser() for saving id key (cookiesession : user.id) in the req.session (to Browser)
+  - passport's session middleware -> Call passport.deserializeUser() using id(connect.sid: cookiesession From browser -> cookiession: user.id) in the req.session for searching User and saving user's info in the req.user so that routers can use common req.user data
