@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 
 exports.join = async (req, res, next) => {
     const { nickName, email, password } = req.body;
-    console.log(`Nick Name : ${nickName}, Email : ${email}`);
 
     try {
         const user = await User.findOne({ where: { email } });
@@ -34,10 +33,11 @@ exports.login = async (req, res, next) => {
         return req.login(user, (loginError) => {
             if (loginError) { 
                 console.error(loginError);
-                return next(error);
+                return next(loginError);
             }
             
-            return res.redirect("/login-success");
+            console.log("Success login");
+            res.redirect("/login-success");
         })
     })(req, res, next);
 }

@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const page = require("../controllers/page");
+const { requiredAuth, noRequiredAuth } = require("../middlewares");
 
-router.get("/", page.renderMain);
-router.get("/join", page.renderJoin);
-router.get("/login-success", page.renderLoginSuccess);
-router.get("/login-required", page.renderLoginRequired);
-router.get("/login-no-required", page.renderLoginNoRequired);
+router.get("/", noRequiredAuth, page.renderMain);
+router.get("/login-success", requiredAuth, page.renderLoginSuccess);
+router.get("/login-already", requiredAuth, page.renderLoginAlready);
+router.get("/join", noRequiredAuth, page.renderJoin);
 
 module.exports = router;
