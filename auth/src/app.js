@@ -8,16 +8,15 @@ const path = require("path");
 const { sequelize } = require("./models");
 const app = express();
 
+const pageRouter = require("./routes/page");
+const authRouter = require("./routes/auth");
+
 passportConfig();
 sequelize.sync( { force: false })
     .then(() => { console.log("Success to connect DB"); })
     .catch((error) => { console.error(error); })
-
-const pageRouter = require("./routes/page");
-const authRouter = require("./routes/auth");
-
 const port_str = "port";
-app.set(port_str, process.env.PORT || 20080);
+app.set(port_str, process.env.PORT || 8001);
 app.use(morgan("dev"));
 app.use(cookieParser("lottologindev"));
 app.use(express.json());

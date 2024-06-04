@@ -9,8 +9,9 @@ services:
       args:
         - WOKR_DIR=/usr/app/src
     environment:
-      - PORT=80
+      - PORT=8001
       - NODE_ENV=container
+      - KAKAO_REST_API_KEY=${KAKAO_REST_API_KEY}
 
     entrypoint: ["/bin/sh", "-c"]
     command:
@@ -21,7 +22,7 @@ services:
     volumes:
       - ../src:/usr/app/src
     ports:
-      - 30080:80
+      - 8001:8001
 
     networks:
       - auth-net

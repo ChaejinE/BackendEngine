@@ -24,9 +24,11 @@
 
 <script>
   window.onload = () => {
-    if (new URL(location.href).searchParams.get('error')) {
-      alert('이미 존재하는 이메일입니다.');
-    }
+      const url = new URL(location.href);
+      console.log(url.searchParams.get('error'))
+      if (url.searchParams.get('error')) {
+          alert('이미 존재하는 이메일입니다 !');
+      }
   };
 </script>
 

@@ -37,7 +37,7 @@ exports.login = async (req, res, next) => {
             }
             
             console.log("Success login");
-            res.redirect("/login-success");
+            res.redirect(`/login-success/?name=${encodeURI(encodeURIComponent(user.nickName))}`);
         })
     })(req, res, next);
 }

@@ -16,3 +16,12 @@
     </div>
 </body>
 </html>
+
+<script>
+    window.onload = () => {
+        const name = new URL(location.href).searchParams.get('name')
+        if (name) {
+            alert(`안녕하세요! ${name} 님 !`);
+        }
+    };
+</script>

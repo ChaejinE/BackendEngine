@@ -5,7 +5,7 @@ class User extends Model {
         this.init({
             email: {
                 type: STRING(40),
-                allowNull: false,
+                allowNull: true,
                 unique: true
             },
             nickName: {
@@ -14,10 +14,15 @@ class User extends Model {
             },
             password: {
                 type: STRING(100),
-                allowNull: false
+                allowNull: true
             },
             provider: {
                 type: STRING(25),
+                allowNull: true,
+                defaultValue: "local"
+            },
+            snsID: {
+                type: STRING(30),
                 allowNull: true
             }
         }, {
